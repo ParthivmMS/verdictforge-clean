@@ -3,7 +3,7 @@ import '../styles/globals.css';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
-import Sidebar from '../components/sidebar'; // 👈 Make sure this exists
+import sidebar from '../components/sidebar'; // 👈 Make sure this exists
 
 export default function App({ Component, pageProps }: AppProps) {
   const [darkMode, setDarkMode] = useState(false);
