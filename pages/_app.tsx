@@ -1,8 +1,9 @@
-// File: pages/_app.tsx
+// pages/_app.tsx
 import '../styles/globals.css';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
+import Sidebar from '../components/Sidebar'; // 👈 Make sure this exists
 
 export default function App({ Component, pageProps }: AppProps) {
   const [darkMode, setDarkMode] = useState(false);
@@ -24,15 +25,22 @@ export default function App({ Component, pageProps }: AppProps) {
           crossOrigin="anonymous"
         ></script>
       </Head>
-      <div className="fixed top-4 right-4">
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="px-4 py-2 rounded-xl bg-zinc-200 dark:bg-zinc-700 text-sm"
-        >
-          Toggle {darkMode ? 'Light' : 'Dark'} Mode
-        </button>
+
+      <div className="flex min-h-screen">
+        <Sidebar /> {/* 👈 Add sidebar */}
+        <main className="flex-1 p-4 bg-white dark:bg-black text-black dark:text-white">
+          <div className="fixed top-4 right-4">
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="px-4 py-2 rounded-xl bg-zinc-200 dark:bg-zinc-700 text-sm"
+            >
+              Toggle {darkMode ? 'Light' : 'Dark'} Mode
+            </button>
+          </div>
+
+          <Component {...pageProps} />
+        </main>
       </div>
-      <Component {...pageProps} />
     </>
   );
 }
