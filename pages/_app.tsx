@@ -3,7 +3,7 @@ import '../styles/globals.css';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
-import Sidebar from '../components/Sidebar'; // 👈 Make sure this exists
+import Sidebar from '../components/Sidebar'; // ✅ Make sure capitalization matches exactly
 
 export default function App({ Component, pageProps }: AppProps) {
   const [darkMode, setDarkMode] = useState(false);
@@ -16,9 +16,12 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>VerdictForge – Indian Legal Judgment Summarizer</title>
-        <meta name="description" content="Summarize Indian legal judgments using AI. Legal and plain-English summaries built for law students and professionals." />
+        <meta
+          name="description"
+          content="Summarize Indian legal judgments using AI. Legal and plain-English summaries built for law students and professionals."
+        />
         <link rel="icon" href="/favicon.ico" />
-        {/* AdSense */}
+        {/* ✅ Google AdSense script */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1762689473102041"
@@ -27,7 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <div className="flex min-h-screen">
-        <Sidebar /> {/* 👈 Add sidebar */}
+        <Sidebar /> {/* ✅ Sidebar is added */}
         <main className="flex-1 p-4 bg-white dark:bg-black text-black dark:text-white">
           <div className="fixed top-4 right-4">
             <button
@@ -37,7 +40,6 @@ export default function App({ Component, pageProps }: AppProps) {
               Toggle {darkMode ? 'Light' : 'Dark'} Mode
             </button>
           </div>
-
           <Component {...pageProps} />
         </main>
       </div>
